@@ -3,9 +3,10 @@ import IMessageRepository  from "../../../repositories/messageRepository";
 import { Messages } from "../model/messageModel";
 import signale from "signale";
 
+
 const MessageAdapter = (): IMessageRepository => {
     return{
-        deleteMessage: async (_id: object): Promise<IMessages> => {
+        deleteMessage: async (_id: string): Promise<IMessages> => {
             try{
                 const result = await Messages.findByIdAndDelete(_id);
                 if(!result) { throw signale.fatal(new Error("No se encontro el mensaje")); }
@@ -14,7 +15,7 @@ const MessageAdapter = (): IMessageRepository => {
                 throw signale.fatal(new Error("Error al eliminar el mensaje"));
             }
         },
-        editMessage: async (_id: object, message: IMessages): Promise<IMessages> => {
+        editMessage: async (_id: string, message: IMessages): Promise<IMessages> => {
             try{
                 const result = await Messages.findByIdAndUpdate(_id, message);
                 if(!result) { throw signale.fatal(new Error("No se encontro el mensaje")); }
@@ -23,7 +24,7 @@ const MessageAdapter = (): IMessageRepository => {
                 throw signale.fatal(new Error("Error al editar el mensaje"));
             }
         },
-        listMessage: async (_id: object): Promise<IMessages[]> => {
+        listMessage: async (_id: string): Promise<IMessages[]> => {
             try{
                 const result = await Messages.aggregate([
                     {

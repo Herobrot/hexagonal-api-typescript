@@ -1,4 +1,3 @@
-import signale from "signale";
 import IMessageRepository from "../../repositories/messageRepository";
 import { IMessages } from "../domain/messages";
 
