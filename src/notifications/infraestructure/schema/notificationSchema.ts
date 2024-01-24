@@ -6,7 +6,8 @@ const notificationsSchema = new Schema<INotifications>({
     body: { type: String, required: true },
     date: { type: Date, required: true },
     category: { type: String, required: true, enum: ECategoryNotifications },
-    idUser: { type: Schema.Types.ObjectId, required: true, ref: 'Users' }
+    categoryUser: { type: [String], required: true, ref: "User" },
+    idUser: { type: String, ref: "User" }
 });
 
 export default notificationsSchema

@@ -1,4 +1,5 @@
-import { Schema, model } from "mongoose";
+//Restructuración pendiente
+/*import { Schema, model } from "mongoose";
 
 interface IWarnings {
     messages: string
@@ -33,4 +34,4 @@ const warningsSchema = new Schema({
 
 const Warnings = model<IWarnings>('Warnings', warningsSchema);
 
-export default Warnings
+export default Warnings*/

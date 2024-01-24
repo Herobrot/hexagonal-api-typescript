@@ -1,11 +1,10 @@
-import { Schema } from "mongoose";
-
 export interface INotifications {
     title: string;
     body: string;
     date: Date;
     category: string;
-    idUser: Schema.Types.ObjectId;
+    categoryUser: string[];
+    idUser?: string;
 }
 
 export enum ECategoryNotifications {

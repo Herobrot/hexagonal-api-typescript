@@ -4,6 +4,7 @@ import morgan from "morgan";
 import signale from "signale";
 import helmet from "helmet";
 import messageRoutes from "../routes/messageRoutes";
+import notificationRoutes from "../routes/notificationsRoutes";
 
 export const createServer = (port: number) => {
     const app: Application = express();
@@ -14,6 +15,7 @@ export const createServer = (port: number) => {
     app.use(express.urlencoded({ extended: true }));
 
     app.use("/messages", messageRoutes(app));
+    app.use("/notifications", notificationRoutes(app));
 
     return {
         app: app,

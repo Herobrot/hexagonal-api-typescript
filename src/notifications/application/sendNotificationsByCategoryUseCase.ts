@@ -1,9 +1,9 @@
-import { Notifications } from "../infraestructure/model/notificationModel";
-import { Request, Response } from "express";
-import signale from "signale";
+import INotificationsRepository from "../../repositories/notificationsRepository"
+import { INotifications } from "../domain/notifications"
 
-const sendNotificationsByCategoryUseCase = async (req: Request, res: Response) => {
-    try{
-        
-    }
+
+const sendNotificationsByCategoryUserUseCase = async (repository: INotificationsRepository, message: INotifications) => {
+    return await repository.sendNotificationByCategoryUser(message)
 }
+
+export default sendNotificationsByCategoryUserUseCase;

@@ -1,4 +1,5 @@
-import { Schema, model } from "mongoose";
+//Restructuración pendiente
+/*import { Schema, model } from "mongoose";
 
 interface IUser {
     name: string;
@@ -51,4 +52,4 @@ const userSchema = new Schema<IUser>({
 
 const User = model<IUser>('Users', userSchema);
 
-export default User
+export default User */
