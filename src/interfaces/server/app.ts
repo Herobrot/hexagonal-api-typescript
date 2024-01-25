@@ -5,6 +5,7 @@ import signale from "signale";
 import helmet from "helmet";
 import messageRoutes from "../routes/messageRoutes";
 import notificationRoutes from "../routes/notificationsRoutes";
+import userRoutes from "../routes/userRoutes";
 
 export const createServer = (port: number) => {
     const app: Application = express();
@@ -16,6 +17,7 @@ export const createServer = (port: number) => {
 
     app.use("/messages", messageRoutes(app));
     app.use("/notifications", notificationRoutes(app));
+    app.use("/users", userRoutes(app));
 
     return {
         app: app,

@@ -20,7 +20,6 @@ export const NotificationAdapter = (): INotificationsRepository => {
         },
         deleteNotification: async (_id: string | object): Promise<INotifications> => {            
                 const result = await Notifications.findByIdAndDelete(_id);
-                console.log(result)
                 if(!result){
                     throw new Error("No se encontro la notificación")
                 }
@@ -28,7 +27,6 @@ export const NotificationAdapter = (): INotificationsRepository => {
         },
         editNotification: async (_id: string | object, notification: INotifications): Promise<INotifications> => {            
                 const result = await Notifications.findByIdAndUpdate(_id, notification, {new: true});
-                console.log(result)
                 if(!result){
                     throw new Error("No se encontro la notificación")
                 }

@@ -6,7 +6,7 @@ import deleteMessageController from "../../messages/infraestructure/controllers/
 import { controllerWrapper } from "../wrappers/controllerWrapper";
 
 const router: Router = express.Router();
-const messageRoutes = () => {
+const messageRoutes = (app: Router) => {
     router.post("/", controllerWrapper(submitMessageController));
     router.get("/:idUser", controllerWrapper(listMessageController));
     router.put("/:id", controllerWrapper(editMessageController));
