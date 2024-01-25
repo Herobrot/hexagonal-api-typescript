@@ -1,7 +1,7 @@
 import INotificationsRepository from "../../repositories/notificationsRepository";
 import { INotifications } from "../domain/notifications";
 
-const editNotificationUseCase = async (repository: INotificationsRepository, _id: string, notification: INotifications) => {
+const editNotificationUseCase = async (repository: INotificationsRepository, _id: string | object, notification: INotifications) => {
     return await repository.editNotification(_id, notification)
 }
 

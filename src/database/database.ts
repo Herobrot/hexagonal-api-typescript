@@ -2,17 +2,17 @@ import { mongodbConnect, mongodbDisconnect } from "./mongodb.database";
 import signale from "signale";
 
 const database = () => {
-    const connect = () => {
+    const connect = async () => {
         try{
-            return mongodbConnect();
+            return await mongodbConnect();
         } catch(error){
             throw signale.fatal(new Error("Error de conección con la base de datos"));
         }
     };
 
-    const disconnect = () => {
+    const disconnect = async () => {
         try{
-            return mongodbDisconnect();
+            return await mongodbDisconnect();
         } catch(error){
             throw signale.fatal(new Error("Error de desconexión con la base de datos"));
         }

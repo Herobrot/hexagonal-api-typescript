@@ -3,10 +3,11 @@ import { INotifications } from "../../domain/notifications";
 import { Request, Response } from "express";
 import signale from "signale";
 
+
 const editNotificationController = async (req: Request, res: Response) => {
     try{
-        const _id = req.params._id
-        const notification: INotifications = await editNotification(_id, req.body)
+        const _id = req.params.id
+        const notification: INotifications = await editNotification({_id: _id}, req.body)
         return res.status(200).send({ message: "Notificación editada", Notification: notification })
     } catch (error: any) {
         signale.fatal(new Error("Error al editar la notificación"))

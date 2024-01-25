@@ -5,7 +5,7 @@ import signale from "signale";
 
 const editMessageController = async (req: Request, res: Response) => {
     try {
-        const _id = req.params._id
+        const _id = req.params.id
         const message: IMessages = req.body
         const result = await editMessage(_id, message)
         return res.status(200).send({ message: "Mensaje editado", Message: result })

@@ -1,7 +1,7 @@
 import IMessageRepository from "../../repositories/messageRepository";
 
 
-const deleteMessageUseCase = async (repository: IMessageRepository, _id: string) => {
+const deleteMessageUseCase = async (repository: IMessageRepository, _id: string | object) => {
     return await repository.deleteMessage(_id)
 }
 

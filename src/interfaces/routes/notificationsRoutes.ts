@@ -8,9 +8,9 @@ import { controllerWrapper } from "../wrappers/controllerWrapper";
 const router: Router = express.Router();
 const notificationRoutes = (app: Router) => {
     router.post("/", controllerWrapper(sendNotificationsByCategoryController));
-    router.get("/?id", controllerWrapper(listNotificationsByUserController));
-    router.put("/?id", controllerWrapper(editNotificationController));
-    router.delete("/?id", controllerWrapper(deleteNotificationController));
+    router.get("/:id", controllerWrapper(listNotificationsByUserController));
+    router.put("/:id", controllerWrapper(editNotificationController));
+    router.delete("/:id", controllerWrapper(deleteNotificationController));
     return router;
 }
 

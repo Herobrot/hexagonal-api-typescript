@@ -5,7 +5,7 @@ import signale from "signale";
 
 const deleteNotificationController = async (req: Request, res: Response) => {
     try{
-        const _id = req.params._id
+        const _id = req.params.id
         const notification: INotifications = await deleteNotification(_id)
         return res.status(200).send({ message: "Notificación eliminada", Notification: notification })
     } catch (error: any) {

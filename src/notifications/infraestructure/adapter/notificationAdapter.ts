@@ -1,51 +1,38 @@
 import { INotifications } from "../../domain/notifications";
 import INotificationsRepository from "../../../repositories/notificationsRepository";
 import { Notifications } from "../model/notificationModel";
-import signale from "signale";
 
 export const NotificationAdapter = (): INotificationsRepository => {
     return{
-        sendNotificationByCategoryUser: async (notification: INotifications): Promise<INotifications> => {
-            try{
-                const result = await Notifications.create(notification);
-                if(!result) { throw signale.fatal(new Error("No se encontro el notificación")); }
-                return result;
-            } catch (error: any) {
-                throw signale.fatal(new Error("Error al enviar la notificación"));
-            }
+        sendNotificationByCategoryUser: async (notification: INotifications): Promise<INotifications> => {            
+                const result = await Notifications.create(notification);                
+                return result;                
         },
-        listNotificationsByUser: async (idUser: string): Promise<INotifications[]> => {
-            try{
+        listNotificationsByUser: async (idUser: string | object): Promise<INotifications[]> => {            
                 const result = await Notifications.aggregate([
                     {
                         $match: {
                             idUser: idUser
                         }
                     }
-                ]);
-                if(!result) { throw signale.fatal(new Error("No se encontro el notificación")); }
-                return result;
-            } catch (error: any) {
-                throw signale.fatal(new Error("Error al enviar la notificación"));
-            }
+                ]);                
+                return result;                
         },
-        deleteNotification: async (_id: string): Promise<INotifications> => {
-            try{
+        deleteNotification: async (_id: string | object): Promise<INotifications> => {            
                 const result = await Notifications.findByIdAndDelete(_id);
-                if(!result) { throw signale.fatal(new Error("No se encontro el notificación")); }
-                return result;
-            } catch (error: any) {
-                throw signale.fatal(new Error("Error al enviar la notificación"));
-            }
+                console.log(result)
+                if(!result){
+                    throw new Error("No se encontro la notificación")
+                }
+                return result;                
         },
-        editNotification: async (_id: string, notification: INotifications): Promise<INotifications> => {
-            try{
-                const result = await Notifications.findByIdAndUpdate(_id, notification);
-                if(!result) { throw signale.fatal(new Error("No se encontro el notificación")); }
-                return result;
-            } catch (error: any) {
-                throw signale.fatal(new Error("Error al enviar la notificación"));
-            }
+        editNotification: async (_id: string | object, notification: INotifications): Promise<INotifications> => {            
+                const result = await Notifications.findByIdAndUpdate(_id, notification, {new: true});
+                console.log(result)
+                if(!result){
+                    throw new Error("No se encontro la notificación")
+                }
+                return result;                
         }
     };
 }

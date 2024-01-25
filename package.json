@@ -33,6 +33,6 @@
     "typescript": "^5.3.3"
   },
   "scripts": {
-    "dev": "ts-node-dev src/app.ts"
+    "dev": "ts-node-dev src/server.ts"
   }
 }

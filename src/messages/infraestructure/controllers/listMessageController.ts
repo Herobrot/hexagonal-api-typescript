@@ -5,7 +5,7 @@ import { listMessage } from "../../application";
 
 const listMessageController = async (req: Request, res: Response) => {
     try {
-        const _id = req.params._id
+        const _id = req.params.id
         const message: IMessages[] = await listMessage(_id)
         return res.status(200).send({ message: "Listado de mensajes", Message: message })
     } catch (error: any) {
