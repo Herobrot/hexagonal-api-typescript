@@ -1,4 +1,4 @@
-import { IMessages } from "../messages/domain/messages";
+import { IMessages } from "./messages";
 
 export default interface IMessageRepository {
     deleteMessage(_id: string | object): Promise<IMessages>

@@ -1,5 +1,5 @@
 import { IUser } from "../domain/user";
-import IUserRepository from "../../repositories/userRepository";
+import IUserRepository from "../domain/userRepository";
 
 const editUserUseCase = async (userRepository: IUserRepository, _id: string | object, user: IUser) => {
     return await userRepository.editUser(_id, user)

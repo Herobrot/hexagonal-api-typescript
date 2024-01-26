@@ -1,6 +1,6 @@
-import { INotifications } from "../../domain/notifications";
-import INotificationsRepository from "../../../repositories/notificationsRepository";
-import { Notifications } from "../model/notificationModel";
+import { INotifications } from "../domain/notifications";
+import INotificationsRepository from "../domain/notificationsRepository";
+import { Notifications } from "./model/notificationModel";
 
 export const NotificationAdapter = (): INotificationsRepository => {
     return{

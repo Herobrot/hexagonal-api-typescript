@@ -1,4 +1,4 @@
-import IMessageRepository from "../../repositories/messageRepository";
+import IMessageRepository from "../domain/messageRepository";
 import { IMessages } from "../domain/messages";
 
 const submitMessageUseCase = async (repository: IMessageRepository, message: IMessages) => {

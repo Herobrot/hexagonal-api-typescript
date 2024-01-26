@@ -1,4 +1,4 @@
-import INotificationsRepository from "../../repositories/notificationsRepository"
+import INotificationsRepository from "../domain/notificationsRepository"
 import { INotifications } from "../domain/notifications"
 
 

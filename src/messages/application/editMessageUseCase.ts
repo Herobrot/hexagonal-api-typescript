@@ -1,5 +1,5 @@
 import { IMessages } from "../domain/messages";
-import IMessageRepository from "../../repositories/messageRepository";
+import IMessageRepository from "../domain/messageRepository";
 
 
 const editMessageUseCase = async (repository: IMessageRepository, _id: string | object, message: IMessages ) => {

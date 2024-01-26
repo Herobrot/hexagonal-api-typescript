@@ -1,5 +1,5 @@
 import database from "./database/database";
-import { createServer } from "./interfaces/server/app";
+import { createServer } from "./app";
 
 export const startApp = () => {
     const port = Number(process.env.PORT);

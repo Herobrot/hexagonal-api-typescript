@@ -3,7 +3,7 @@ import getListOfUsersUseCase from "./getListOfUsersByRoleUseCase";
 import deleteUserUseCase from "./deleteUserUseCase";
 import editUserUseCase from "./editUserUseCase";
 import createUserUseCase from "./createUserUseCase";
-import userAdapter from "../infraestructure/adapter/userAdapter";
+import userAdapter from "../infraestructure/userAdapter";
 
 export const listUsersByRole = (role: string) => getListOfUsersUseCase(userAdapter(), role);
 export const deleteUser = (_id: string | object) => deleteUserUseCase(userAdapter(), _id);

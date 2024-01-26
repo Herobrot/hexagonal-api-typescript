@@ -1,6 +1,6 @@
-import { IUser } from "../../domain/user";
-import IUserRepository from "../../../repositories/userRepository";
-import { User } from "../model/userModel";
+import { IUser } from "../domain/user";
+import IUserRepository from "../domain/userRepository";
+import { User } from "./model/userModel";
 
 export const userAdapter = (): IUserRepository => {
     return{

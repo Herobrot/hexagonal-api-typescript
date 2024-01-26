@@ -1,4 +1,4 @@
-import INotificationsRepository from "../../repositories/notificationsRepository";
+import INotificationsRepository from "../domain/notificationsRepository";
 
 const deleteNotificationUseCase = async (repository: INotificationsRepository, _id: string | object) => {
     return await repository.deleteNotification(_id)

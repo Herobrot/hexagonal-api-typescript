@@ -3,9 +3,9 @@ import cors from "cors";
 import morgan from "morgan";
 import signale from "signale";
 import helmet from "helmet";
-import messageRoutes from "../routes/messageRoutes";
-import notificationRoutes from "../routes/notificationsRoutes";
-import userRoutes from "../routes/userRoutes";
+import messageRoutes from "./messages/infraestructure/messageRoutes";
+import notificationRoutes from "./notifications/infraestructure/notificationsRoutes";
+import userRoutes from "./users/infraestructure/userRoutes";
 
 export const createServer = (port: number) => {
     const app: Application = express();

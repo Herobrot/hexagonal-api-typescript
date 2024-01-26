@@ -1,6 +1,6 @@
-import { IMessages } from "../../domain/messages";
-import IMessageRepository  from "../../../repositories/messageRepository";
-import { Messages } from "../model/messageModel";
+import { IMessages } from "../domain/messages";
+import IMessageRepository  from "../domain/messageRepository";
+import { Messages } from "./model/messageModel";
 import signale from "signale";
 
 

@@ -1,4 +1,4 @@
-import INotificationsRepository from "../../repositories/notificationsRepository";
+import INotificationsRepository from "../domain/notificationsRepository";
 
 const listNotificationsByUserUseCase = async (repository: INotificationsRepository, idUser: string | object) => {
     return await repository.listNotificationsByUser(idUser)

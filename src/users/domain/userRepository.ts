@@ -1,4 +1,4 @@
-import { IUser } from "../users/domain/user";
+import { IUser } from "./user";
 
 export default interface IUserRepository {
     createUser(user: IUser): Promise<IUser>

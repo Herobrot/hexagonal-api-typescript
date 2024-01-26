@@ -1,5 +1,5 @@
 import { INotifications } from "../domain/notifications";
-import NotificationAdapter from "../infraestructure/adapter/notificationAdapter";
+import NotificationAdapter from "../infraestructure/notificationAdapter";
 import deleteNotificationUseCase from "./deleteNotificationUseCase";
 import editNotificationUseCase from "./editNotificationUseCase";
 import listNotificationsByUserUseCase from "./listNotificationsByUserUseCase";

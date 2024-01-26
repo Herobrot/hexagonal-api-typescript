@@ -1,4 +1,4 @@
-import { INotifications } from "../notifications/domain/notifications";
+import { INotifications } from "./notifications";
 
 export default interface INotificationsRepository {
     sendNotificationByCategoryUser(notification: INotifications): Promise<INotifications>

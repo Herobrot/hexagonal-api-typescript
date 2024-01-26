@@ -1,4 +1,4 @@
-import MessageAdapter from "../infraestructure/adapter/messageAdapter";
+import MessageAdapter from "../infraestructure/messageAdapter";
 import { IMessages } from "../domain/messages";
 import deleteMessageUseCase from "./deleteMessageUseCase";
 import editMessageUseCase from "./editMessageUseCase";
