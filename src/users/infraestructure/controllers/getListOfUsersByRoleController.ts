@@ -3,7 +3,7 @@ import { IUser } from "../../domain/user";
 import { listUsersByRole } from "../../application";
 import signale from "signale";
 
-const getListOfUsersByRoleController = async (req: Request, res: Response) => {
+const getListOfUsersByRoleController = async (req: Request, res: Response): Promise<any> => {
     try{
         const role = req.params.role;
         const users: IUser[] = await listUsersByRole(role);

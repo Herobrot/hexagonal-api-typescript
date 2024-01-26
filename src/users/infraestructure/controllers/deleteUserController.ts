@@ -3,7 +3,7 @@ import { IUser } from "../../domain/user";
 import { deleteUser } from "../../application";
 import signale from "signale";
 
-const deleteUserController = async (req: Request, res: Response) => {
+const deleteUserController = async (req: Request, res: Response): Promise<any> => {
     try{
         const _id = req.params._id;
         const user: IUser = await deleteUser(_id);

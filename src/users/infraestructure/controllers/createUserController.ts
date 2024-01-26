@@ -3,7 +3,7 @@ import { IUser } from "../../domain/user";
 import { createUser } from "../../application";
 import signale from "signale";
 
-const createUserController = async (req: Request, res: Response) => {
+const createUserController = async (req: Request, res: Response): Promise<any> => {
     try{
         const user: IUser = req.body;
         const newUser = await createUser(user);

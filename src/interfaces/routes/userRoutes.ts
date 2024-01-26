@@ -9,8 +9,8 @@ const router: Router = express.Router();
 const userRoutes = (app: Router) => {
     router.post("/", controllerWrapper(createUserController));
     router.get("/:role", controllerWrapper(getListOfUsersByRoleController));
-    router.put("/:id", controllerWrapper(editUserController));
-    router.delete("/:id", controllerWrapper(deleteUserController));
+    router.put("/:_id", controllerWrapper(editUserController));
+    router.delete("/:_id", controllerWrapper(deleteUserController));
     return router;
 }
 

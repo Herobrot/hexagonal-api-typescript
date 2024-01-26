@@ -11,6 +11,7 @@ const notificationRoutes = (app: Router) => {
     router.get("/:id", controllerWrapper(listNotificationsByUserController));
     router.put("/:id", controllerWrapper(editNotificationController));
     router.delete("/:id", controllerWrapper(deleteNotificationController));
+    
     return router;
 }
 

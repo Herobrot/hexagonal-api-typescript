@@ -3,7 +3,7 @@ import { IUser } from "../../domain/user";
 import { editUser } from "../../application";
 import signale from "signale";
 
-const editUserController = async (req: Request, res: Response) => {
+const editUserController = async (req: Request, res: Response): Promise<any> => {
     try{
         const _id = req.params._id;
         const user: IUser = req.body;

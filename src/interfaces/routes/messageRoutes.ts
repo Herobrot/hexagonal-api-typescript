@@ -8,7 +8,7 @@ import { controllerWrapper } from "../wrappers/controllerWrapper";
 const router: Router = express.Router();
 const messageRoutes = (app: Router) => {
     router.post("/", controllerWrapper(submitMessageController));
-    router.get("/:idUser", controllerWrapper(listMessageController));
+    router.get("/:id", controllerWrapper(listMessageController));
     router.put("/:id", controllerWrapper(editMessageController));
     router.delete("/:id", controllerWrapper(deleteMessageController));
     return router;

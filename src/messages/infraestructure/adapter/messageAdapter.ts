@@ -26,21 +26,8 @@ const MessageAdapter = (): IMessageRepository => {
         },
         listMessage: async (_id: string | object): Promise<IMessages[]> => {
             try{
-                const result = await Messages.aggregate([
-                    {
-                        $lookup: {
-                            from: 'users',
-                            localField: '_idUsuario',
-                            foreignField: '_id',
-                            as: 'user'
-                        }
-                    },
-                    {
-                        $match: {
-                            _id: _id
-                        }
-                    }
-                ]);
+                console.log(_id)
+                const result = await Messages.find({_idUsuario: _id});
                 if(!result) { throw signale.fatal(new Error("No se encontro el mensaje")); }
                 return result;
             } catch (error: any) {
