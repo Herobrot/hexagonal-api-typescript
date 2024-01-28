@@ -9,8 +9,11 @@ import userRoutes from "./users/infraestructure/userRoutes";
 
 export const createServer = (port: number) => {
     const app: Application = express();
+    let corsOptions = {
+        origin: "localhost:3000",
+    }
     app.use(express.json());
-    app.use(cors());
+    app.use(cors(corsOptions));
     app.use(morgan('dev'));
     app.use(helmet());
     app.use(express.urlencoded({ extended: true }));

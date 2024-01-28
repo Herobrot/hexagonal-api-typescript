@@ -3,14 +3,21 @@ import submitMessageController from "./controllers/submitMessageController";
 import listMessageController from "./controllers/listMessageController";
 import editMessageController from "./controllers/editMessageController";
 import deleteMessageController from "./controllers/deleteMessageController";
-import { controllerWrapper } from "./controllers/controllerWrapper";
 
 const router: Router = express.Router();
 const messageRoutes = (app: Router) => {
-    router.post("/", controllerWrapper(submitMessageController));
-    router.get("/:id", controllerWrapper(listMessageController));
-    router.put("/:id", controllerWrapper(editMessageController));
-    router.delete("/:id", controllerWrapper(deleteMessageController));
+    router.post("/", (req, res) => {
+        submitMessageController(req, res)
+    });
+    router.get("/:id", (req, res) => {
+        listMessageController(req, res)
+    });
+    router.put("/:id", (req, res) => {
+        editMessageController(req, res)
+    });
+    router.delete("/:id", (req, res) => {
+        deleteMessageController(req, res)
+    });
     return router;
 }
 

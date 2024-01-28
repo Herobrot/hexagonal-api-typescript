@@ -3,14 +3,21 @@ import sendNotificationsByCategoryController from "./controllers/sendNotificatio
 import listNotificationsByUserController from "./controllers/listNotificationsByUserController";
 import editNotificationController from "./controllers/editNotificationUseController";
 import deleteNotificationController from "./controllers/deleteNotificationController";
-import { controllerWrapper } from "./controllers/controllerWrapper";
 
 const router: Router = express.Router();
 const notificationRoutes = (app: Router) => {
-    router.post("/", controllerWrapper(sendNotificationsByCategoryController));
-    router.get("/:id", controllerWrapper(listNotificationsByUserController));
-    router.put("/:id", controllerWrapper(editNotificationController));
-    router.delete("/:id", controllerWrapper(deleteNotificationController));
+    router.post("/", (req, res) => {
+        sendNotificationsByCategoryController(req, res);
+    });
+    router.get("/:id", (req, res) => {
+        listNotificationsByUserController(req, res)
+    });
+    router.put("/:id", (req, res) => {
+        editNotificationController(req, res)
+    });
+    router.delete("/:id", (req, res) => {
+        deleteNotificationController(req, res)
+    });
     
     return router;
 }
