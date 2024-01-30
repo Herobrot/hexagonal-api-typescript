@@ -5,6 +5,8 @@ import { User } from "./model/userModel";
 export const userAdapter = (): IUserRepository => {
     return{
         createUser: async (user: IUser): Promise<IUser> => {
+            const check = await User.findOne({badgeNumber: user.badgeNumber});
+            if(check) { throw new Error("El usuario ya existe") }
             const result = await User.create(user);
             return result;
         },
@@ -20,6 +22,11 @@ export const userAdapter = (): IUserRepository => {
         },
         getListOfUsersByRole: async (role: string): Promise<IUser[]> => {
             const result = await User.find({role: role});
+            return result;
+        },
+        loginUser: async (user: IUser): Promise<IUser> => {
+            const result = await User.findOne({badgeNumber: user.badgeNumber});
+            if(!result) { throw new Error("No se encontro el usuario") }
             return result;
         }
     };

@@ -5,4 +5,5 @@ export default interface IUserRepository {
     getListOfUsersByRole(role: string): Promise<IUser[]>
     deleteUser(_id: string | object): Promise<IUser>
     editUser(_id: string | object, user: IUser): Promise<IUser>
+    loginUser(user: IUser): Promise<IUser>
 }
