@@ -5,4 +5,5 @@ export default interface IMessageRepository {
     editMessage(_id: string | object, message: IMessages): Promise<IMessages>
     listMessage(_id: string | object): Promise<IMessages[]>
     submitMessage(message: IMessages): Promise<IMessages>
+    getMessageById(_id: string | object): Promise<IMessages>
 }
