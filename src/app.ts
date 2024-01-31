@@ -6,6 +6,7 @@ import helmet from "helmet";
 import messageRoutes from "./messages/infraestructure/messageRoutes";
 import notificationRoutes from "./notifications/infraestructure/notificationsRoutes";
 import userRoutes from "./users/infraestructure/userRoutes";
+import warningRoutes from "./warnings/infraestructure/warningRoutes";
 
 export const createServer = (port: number) => {
     const app: Application = express();
@@ -21,6 +22,7 @@ export const createServer = (port: number) => {
     app.use("/messages", messageRoutes(app));
     app.use("/notifications", notificationRoutes(app));
     app.use("/users", userRoutes(app));
+    app.use("/warnings", warningRoutes(app));
 
     return {
         app: app,
