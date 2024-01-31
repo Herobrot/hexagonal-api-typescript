@@ -16,3 +16,9 @@ export enum ECategoryWarning{
     "Trata de personas" = "Trata de personas",
     "Otros" = "Otros"
 }
+
+export enum EStatusWarning{
+    "Reciente" = "Reciente",
+    "En curso" = "En curso",
+    "Finalizado" = "Finalizado"
+}
