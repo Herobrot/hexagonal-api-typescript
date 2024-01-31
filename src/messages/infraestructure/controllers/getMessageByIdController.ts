@@ -7,7 +7,7 @@ const getMessageByIdController = async (req: Request, res: Response) => {
     try {
         const _id = req.params._id
         const message: IMessages = await getMessageById(_id)
-        return res.status(200).send({ message: message })
+        return res.status(200).json(message)
     } catch (error: any) {
         signale.fatal(new Error("Error al buscar el mensaje"))
         return res.status(500).send({ error: error.message })

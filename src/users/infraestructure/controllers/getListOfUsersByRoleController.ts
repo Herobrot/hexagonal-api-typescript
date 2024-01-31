@@ -7,9 +7,10 @@ const getListOfUsersByRoleController = async (req: Request, res: Response): Prom
     try{
         const role = req.params.role;
         const users: IUser[] = await listUsersByRole(role);
-        return res.status(200).send({ message: "Lista de usuarios por rol", Users: users });
+        return res.status(200).json({ message: "Lista de usuarios por rol", Users: users });
     } catch (error){
         signale.fatal(new Error("Error al obtener la lista de usuarios por rol"));
+        res.status(404).send({ message: "No se encontró usuarios con ese rol" });
     }
 }
 

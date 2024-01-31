@@ -9,13 +9,13 @@ const notificationRoutes = (app: Router) => {
     router.post("/", (req, res) => {
         sendNotificationsByCategoryController(req, res);
     });
-    router.get("/:id", (req, res) => {
+    router.get("/:idUser", (req, res) => {
         listNotificationsByUserController(req, res)
     });
-    router.put("/:id", (req, res) => {
+    router.put("/:_id", (req, res) => {
         editNotificationController(req, res)
     });
-    router.delete("/:id", (req, res) => {
+    router.delete("/:_id", (req, res) => {
         deleteNotificationController(req, res)
     });
     

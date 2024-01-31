@@ -20,7 +20,7 @@ const loginUserController = async (req: Request, res: Response): Promise<any> =>
         return res.json({ token, userFound });
     } catch (error: any) {
         signale.fatal(new Error("Error al iniciar sesión"));
-        res.status(500).send({ error: error.message });
+        res.status(404).send({ message: "No se encontro el usuario" });
     }
 }
 

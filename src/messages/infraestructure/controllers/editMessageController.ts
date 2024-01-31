@@ -8,7 +8,7 @@ const editMessageController = async (req: Request, res: Response) => {
         const _id = req.params.id
         const message: IMessages = req.body
         const result = await editMessage(_id, message)
-        return res.status(200).send({ message: "Mensaje editado", Message: result })
+        return res.status(200).json({ message: "Mensaje editado", Message: result })
     } catch (error: any) {
         signale.fatal(new Error("Error al editar el mensaje"))
         return res.status(500).send({ error: error.message })

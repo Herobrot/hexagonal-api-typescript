@@ -7,7 +7,7 @@ const listNotificationsByUserController = async (req: Request, res: Response) =>
     try{
         const idUser = req.params.idUser
         const notifications: INotifications[] = await listNotificationsByUser(idUser)
-        return res.status(200).send({ message: "Notificaciones listadas", Notifications: notifications })
+        return res.status(200).json({ message: "Notificaciones listadas", Notifications: notifications })
     } catch (error: any) {
         signale.fatal(new Error("Error al listar las notificaciones"))
         return res.status(500).send({ error: error.message })

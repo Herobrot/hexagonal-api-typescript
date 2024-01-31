@@ -8,7 +8,7 @@ const editUserController = async (req: Request, res: Response): Promise<any> => 
         const _id = req.params._id;
         const user: IUser = req.body;
         const editedUser: IUser = await editUser(_id, user);
-        return res.status(200).send({ message: "Usuario editado", User: editedUser});
+        return res.status(201).json({ message: "Usuario editado", editedUser });
     } catch (error){
         signale.fatal(new Error("Error al editar el usuario"))
         res.status(404).send({ message: "No se encontró el usuario" })
