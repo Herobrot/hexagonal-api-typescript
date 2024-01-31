@@ -11,7 +11,7 @@ import warningRoutes from "./warnings/infraestructure/warningRoutes";
 export const createServer = (port: number) => {
     const app: Application = express();
     let corsOptions = {
-        origin: "localhost:3000",
+        origin: "*",
     }
     app.use(express.json());
     app.use(cors(corsOptions));
