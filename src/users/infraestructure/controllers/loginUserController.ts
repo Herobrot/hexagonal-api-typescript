@@ -1,5 +1,5 @@
-import { Request, Response } from "express";
 import { IUser } from "../../domain/user";
+import { Request, Response } from "express";
 import { loginUser } from "../../application";
 import signale from "signale";
 import bcrypt from 'bcrypt';
@@ -17,7 +17,7 @@ const loginUserController = async (req: Request, res: Response): Promise<any> =>
         }
 
         const token = createToken(userFound.badgeNumber);
-        return res.json({ token, userFound });
+        return res.status(201).json({ token, userFound });
     } catch (error: any) {
         signale.fatal(new Error("Error al iniciar sesión"));
         res.status(404).send({ message: "No se encontro el usuario" });
