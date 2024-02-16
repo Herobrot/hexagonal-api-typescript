@@ -1,7 +1,7 @@
 import { Schema } from "mongoose"
-import { IUser, ERole } from "../../domain/user";
+import { User, ERole } from "../../domain/user";
 
-const userSchema = new Schema<IUser>({
+const userSchema = new Schema<User>({
     name: { type: String, required: true },
     lastName: { type: String, required: true },
     badgeNumber: { type: String, required: true },

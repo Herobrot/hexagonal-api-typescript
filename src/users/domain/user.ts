@@ -1,9 +1,11 @@
-export interface IUser {
-    name: string;
-    lastName: string;
-    badgeNumber: string;
-    password: string;
-    role: string;
+export class User {
+    constructor(
+        readonly name: string,
+        readonly lastName: string,
+        readonly badgeNumber: string,
+        readonly password: string,
+        readonly role: string
+    ){}
 }
 
 export enum ERole {

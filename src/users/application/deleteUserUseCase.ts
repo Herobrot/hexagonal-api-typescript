@@ -1,7 +1,10 @@
-import IUserRepository from "../domain/userRepository";
+import UserRepository from "../domain/userRepository";
 
-const deleteUserUseCase = async (userRepository: IUserRepository, _id: string | object) => {
-    return await userRepository.deleteUser(_id)
+export class DeleteUserUseCase {
+    constructor(readonly userRepository: UserRepository) {}
+
+    async run(_id: string | object) {
+        const result = await this.userRepository.deleteUser(_id)
+        return result
+    }
 }
-
-export default deleteUserUseCase

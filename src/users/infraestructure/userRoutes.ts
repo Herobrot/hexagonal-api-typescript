@@ -1,28 +1,17 @@
 import express, { Router } from "express";
-import createUserController from "./controllers/createUserController";
-import getListOfUsersByRoleController from "./controllers/getListOfUsersByRoleController";
-import editUserController from "./controllers/editUserController";
-import deleteUserController from "./controllers/deleteUserController";
-import loginUserController from "./controllers/loginUserController";
+import { createUserController } from "./dependencies";
+import { editUserController } from "./dependencies";
+import { deleteUserController } from "./dependencies";
+import { loginUserController } from "./dependencies";
+import { getListOfUsersByRoleController } from "./dependencies";
+
 
 const router: Router = express.Router();
-const userRoutes = (app: Router) => {
-    router.post("/", (req, res) => {
-        createUserController(req, res)
-    });
-    router.post("/user", (req, res) => {
-        loginUserController(req, res)
-    });
-    router.get("/category/:role", (req, res) => {
-        getListOfUsersByRoleController(req, res)
-    });
-    router.put("/:_id", (req, res) => {
-        editUserController(req, res)
-    });
-    router.delete("/:_id", (req, res) => {
-        deleteUserController(req, res)
-    });
-    return router;
-}
 
-export default userRoutes
+router.post("/", createUserController.run.bind(createUserController));
+router.post("/user", loginUserController.run.bind(loginUserController));
+router.get("/category/:role", getListOfUsersByRoleController.run.bind(getListOfUsersByRoleController));
+router.put("/:_id", editUserController.run.bind(editUserController));
+router.delete("/:_id", deleteUserController.run.bind(deleteUserController));
+
+export default router;
