@@ -1,7 +1,9 @@
-import IUserRepository from "../domain/userRepository";
+import UserRepository from "../domain/userRepository";
 
-const getListOfUsersUseCase = async (userRepository: IUserRepository, role: string) => {
-    return await userRepository.getListOfUsersByRole(role);
+export class GetListOfUsersByRoleUseCase {
+    constructor(readonly userRepository: UserRepository) {}
+
+    async run(role: string) {
+        return await this.userRepository.getListOfUsersByRole(role);
+    }
 }
-
-export default getListOfUsersUseCase

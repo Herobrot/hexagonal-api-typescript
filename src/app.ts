@@ -21,7 +21,7 @@ export const createServer = (port: number) => {
 
     app.use("/messages", messageRoutes(app));
     app.use("/notifications", notificationRoutes(app));
-    app.use("/users", userRoutes(app));
+    app.use("/users", userRoutes);
     app.use("/warnings", warningRoutes(app));
 
     return {
