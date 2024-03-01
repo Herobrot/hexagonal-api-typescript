@@ -6,6 +6,7 @@ import signale from "signale";
 export class GetListOfUsersByRoleController{
     constructor(readonly getListOfUsersByRoleUseCase: GetListOfUsersByRoleUseCase){}
 
+
     async run(req: Request, res: Response){
         try{
             const role = req.params.role;

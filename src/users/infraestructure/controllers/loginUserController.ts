@@ -9,6 +9,7 @@ const loginUserController = async (req: Request, res: Response): Promise<any> =>
         const user: User = req.body;
         const userFound = await loginUser(user);
         const isCorrectPassword = await bcrypt.compare(user.password, userFound.password);
+        console.log(userFound.password, user.password, isCorrectPassword)
         
         if(!isCorrectPassword) {
             return res.status(401).send({ message: "Contraseña incorrecta" });
@@ -18,7 +19,7 @@ const loginUserController = async (req: Request, res: Response): Promise<any> =>
         return res.status(201).json({ token, userFound });
     } catch (error: any) {
         signale.fatal(new Error("Error al iniciar sesión"));
-        res.status(404).send({ message: "No se encontro el usuario" });
+        res.status(404).send({ message: "Error al iniciar sesión", errors: error.message });
     }
 } */
 
