@@ -1,5 +1,6 @@
 import MongooseRepository from "./mongooseRepository";
 import { NotificacionNewUser } from "./servicesRabbitMQ/NotificationNewUser";
+import { NotificacionNewUserUseCase } from "../application/services/NotificationNewUser";
 import { CreateUserController } from "./controllers/createUserController";
 import { EditUserController } from "./controllers/editUserController";
 import { DeleteUserController } from "./controllers/deleteUserController";
@@ -16,10 +17,14 @@ import { GetListOfUsersByRoleUseCase } from "../application/getListOfUsersByRole
 export const mongooseRepository = new MongooseRepository();
 export const notificationNewUser = new NotificacionNewUser();
 
+export const notificationNewUserUseCase = new NotificacionNewUserUseCase(
+    notificationNewUser
+)
+
 export const createUserUseCase = new CreateUserUseCase(
     mongooseRepository,
     new EncryptService,
-    notificationNewUser
+    notificationNewUserUseCase
 )
 
 export const editUserUseCase = new EditUserUseCase(

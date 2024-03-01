@@ -24,8 +24,9 @@ export class CreateUserUseCase {
             badgeNumber,
             this.encrypterService.hashPassword(password),
             role
-         );      
-         this.notificationNewUser.run(user)
+         );
+         if(user)
+            this.notificationNewUser.run(user)
          return user
       } catch (error){
          return null
